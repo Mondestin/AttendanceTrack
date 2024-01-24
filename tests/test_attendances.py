@@ -6,17 +6,6 @@ import pytest
 # Create a TestClient instance for making HTTP requests
 client = TestClient(app)
 
-# Fixture to create sample attendance data for testing
-@pytest.fixture
-def create_sample_attendance():
-    sample_attendance_data = {
-        "student_id": "sample_student_id",
-        "session_id": "sample_session_id",
-        "present": True
-    }
-    response = client.post("/attendances/", json=sample_attendance_data)
-    return response.json()
-
 
 # Test case to get all attendance data
 def test_get_attendance_data():
@@ -46,8 +35,8 @@ def test_get_attendance_by_id(create_sample_attendance):
 def test_modify_attendance(create_sample_attendance):
     attendance_id = create_sample_attendance["id"]
     updated_data = {
-        "student_id": "sample_student_id",
-        "session_id": "sample_session_id",
+        "student_id": "test_student_id",
+        "session_id": "test_session_id",
         "present": False
     }
     response = client.patch(f"/attendances/{attendance_id}", json=updated_data)

@@ -9,15 +9,6 @@ import pytest
 # Create a TestClient instance for making HTTP requests
 client = TestClient(app)
 
-# Fixture to create a sample user session for testing
-@pytest.fixture
-def create_sample_session(auth_user):
-    sample_session_data = {"name": "Test Session"}
-    response = client.post("/sessions/", json=sample_session_data, headers={
-        "Authorization": f"Bearer {auth_user['access_token']}",
-    })
-    return response.json()
-
 # Test case to get all user sessions
 def test_get_sessions(auth_user, create_sample_session):
     response = client.get("/sessions/", headers={

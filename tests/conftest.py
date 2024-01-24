@@ -1,4 +1,3 @@
-# Import necessary modules
 from firebase_admin import auth
 from fastapi.testclient import TestClient
 from main import app
@@ -39,3 +38,30 @@ def auth_user(create_user):
     })
     # Return the user credentials in JSON format
     return user_credential.json()
+
+# Define fixture to create a sample student for testing
+@pytest.fixture
+def create_sample_student():
+    sample_student_data = {"name": "Test Student"}
+    response = client.post("/students/", json=sample_student_data)
+    return response.json()
+
+# Define fixture to create sample attendance data for testing
+@pytest.fixture
+def create_sample_attendance():
+    sample_attendance_data = {
+        "student_id": "test_student_id",
+        "session_id": "test_session_id",
+        "present": True
+    }
+    response = client.post("/attendances/", json=sample_attendance_data)
+    return response.json()
+
+# Define fixture to create a sample user session for testing
+@pytest.fixture
+def create_sample_session(auth_user):
+    sample_session_data = {"name": "Test Session"}
+    response = client.post("/sessions/", json=sample_session_data, headers={
+        "Authorization": f"Bearer {auth_user['access_token']}",
+    })
+    return response.json()

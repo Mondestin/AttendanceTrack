@@ -33,7 +33,7 @@ def test_stripe_webhook_received_success():
         "type": "checkout.session.completed",
         "data": {
             "object": {
-                "customer_email": "test@example.com"
+                "cust_id": "test@gmail.com"
             }
         }
     }

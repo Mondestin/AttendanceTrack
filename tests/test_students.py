@@ -8,13 +8,6 @@ import pytest
 # Create a TestClient instance for making HTTP requests
 client = TestClient(app)
 
-# Fixture to create a sample student for testing
-@pytest.fixture
-def create_sample_student():
-    sample_student_data = {"name": "Test Student"}
-    response = client.post("/students/", json=sample_student_data)
-    return response.json()
-
 # Test case to get all students
 def test_get_students():
     response = client.get("/students/")
