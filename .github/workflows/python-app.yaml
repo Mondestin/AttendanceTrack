@@ -34,7 +34,7 @@ jobs:
 
     - name: Print Variables
       run: |
-        echo "Python version: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}"
+        echo "Print key: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}"
     - name: Test with pytest
       run: |
         pytest
