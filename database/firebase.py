@@ -12,7 +12,7 @@ load_dotenv()
 
 firebase_service_account_key = os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY")
 
-cred = credentials.Certificate(json.loads(firebase_service_account_key, strict=False))
+cred = credentials.Certificate(json.loads(firebase_service_account_key))
 firebase_admin.initialize_app(cred)
 # load firebase config
 firebase = pyrebase.initialize_app(json.loads(os.getenv("FIREBASE_CONFIG"), strict=False))
