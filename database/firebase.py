@@ -7,6 +7,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+
 # get variables from .example.env file
 #config = dotenv_values(".example.env")
 config={
@@ -15,9 +16,11 @@ config={
 }
 
 # Initialize Firebase Admin with the service account information
+json_str = json.loads(jsonString, strict=False)
 cred = credentials.Certificate(json.loads(config["FIREBASE_SERVICE_ACCOUNT_KEY"]))
 firebase_admin.initialize_app(cred)
 # load firebase config
+json_str = json.loads(jsonString, strict=False)
 firebase = pyrebase.initialize_app(json.loads(config["FIREBASE_CONFIG"]))
 # init firebase as db
 db = firebase.database()
