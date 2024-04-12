@@ -3,6 +3,7 @@ from fastapi.responses import RedirectResponse
 import stripe
 from firebase_admin import auth
 from database.firebase import db
+import os
 from routers.router_auth import get_current_user
 router = APIRouter(
       tags=["Stripe"],
@@ -11,7 +12,12 @@ router = APIRouter(
   
 # This is your test secret API key.
 from dotenv import dotenv_values
-config = dotenv_values(".example.env")
+#config = dotenv_values(".example.env")
+
+config={
+    "STRIPE_SK": os.getenv("STRIPE_SK")
+}
+
 stripe.api_key = config['STRIPE_SK']
 
 DOMAIN = 'http://localhost:8000'
