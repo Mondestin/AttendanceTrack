@@ -6,6 +6,7 @@ from firebase_admin import credentials
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
 # get variables from .example.env file
 #config = dotenv_values(".example.env")
 config={
