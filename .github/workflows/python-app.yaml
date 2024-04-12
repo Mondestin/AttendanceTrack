@@ -32,9 +32,9 @@ jobs:
         pip install fastapi uvicorn pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Print Version Variables
+    - name: Print Variables
       run: |
-        echo "Python version: ${{ matrix.python-version }}"
+        echo "Python version: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}"
     - name: Test with pytest
       run: |
         pytest
