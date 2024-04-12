@@ -37,7 +37,7 @@ jobs:
         echo "Print key: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}"
     - name: Test with pytest
       run: |
-        pytest
+       pytest --cov=routers --cov-report=term --cov-report=xml:coverage.xml
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
