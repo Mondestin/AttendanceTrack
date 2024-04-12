@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 import os
 import stripe
 
-# Set the TESTING environment variable to 'True'
-# os.environ['TESTING'] = 'True'
 load_dotenv()
 # Create a TestClient instance for making HTTP requests
 client = TestClient(app)
