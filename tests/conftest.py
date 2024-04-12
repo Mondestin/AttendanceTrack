@@ -5,7 +5,7 @@ import pytest
 
 # Set the TESTING environment variable to 'True'
 import os
-# os.environ['TESTING'] = 'True'
+os.environ['TESTING'] = 'True'
 
 # Create a TestClient instance
 client = TestClient(app)

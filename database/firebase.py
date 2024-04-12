@@ -15,10 +15,10 @@ config={
 }
 
 # Initialize Firebase Admin with the service account information
-cred = credentials.Certificate(json.loads(config['FIREBASE_SERVICE_ACCOUNT_KEY']))
+cred = credentials.Certificate(json.loads(config["FIREBASE_SERVICE_ACCOUNT_KEY"]))
 firebase_admin.initialize_app(cred)
 # load firebase config
-firebase = pyrebase.initialize_app(json.loads(config['FIREBASE_CONFIG']))
+firebase = pyrebase.initialize_app(json.loads(config["FIREBASE_CONFIG"]))
 # init firebase as db
 db = firebase.database()
 # init firebase as authSession
