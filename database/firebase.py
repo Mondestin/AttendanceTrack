@@ -10,8 +10,9 @@ load_dotenv()
 # get variables from .example.env file
 #config = dotenv_values(".example.env")
 
-# Initialize Firebase Admin with the service account information
-cred = credentials.Certificate(json.loads(os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY"), strict=False))
+firebase_service_account_key = os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY")
+
+cred = credentials.Certificate(json.loads(firebase_service_account_key, strict=False))
 firebase_admin.initialize_app(cred)
 # load firebase config
 firebase = pyrebase.initialize_app(json.loads(os.getenv("FIREBASE_CONFIG"), strict=False))
