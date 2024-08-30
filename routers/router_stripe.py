@@ -11,7 +11,7 @@ router = APIRouter(
   
 # This is your test secret API key.
 from dotenv import dotenv_values
-config = dotenv_values(".example.env")
+config = dotenv_values(".env")
 stripe.api_key = config['STRIPE_SK']
 
 DOMAIN = 'http://localhost:8000'
@@ -43,7 +43,7 @@ async def stripe_checkout():
 @router.get('/success')   
 async def stripe_success():
     return {
-        "message": f"You have successfully subscribe to Attendance Track"
+        "message": f"You have successfully subscribed to Attendance Track"
         }
 
 

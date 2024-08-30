@@ -18,7 +18,7 @@ def test_create_user_success():
 # Test case for creating a user with a conflicting email address
 def test_create_user_conflict(create_user):
     # Use the same email address created by the create_user fixture
-    conflicting_email = "test.user2@gmail.com"
+    conflicting_email = "test@gmail.com"
     
     # Make a POST request to the signup endpoint with conflicting user data
     res = client.post("/auth/signup", json={

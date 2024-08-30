@@ -5,7 +5,7 @@ from firebase_admin import credentials
 from dotenv import dotenv_values
 
 # get variables from .example.env file
-config = dotenv_values(".example.env")
+config = dotenv_values(".env")
 
 # Initialize Firebase Admin with the service account information
 cred = credentials.Certificate(json.loads(config['FIREBASE_SERVICE_ACCOUNT_KEY']))
